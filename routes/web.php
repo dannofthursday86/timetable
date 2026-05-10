@@ -37,3 +37,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     Route::get('calendar', 'CalendarController@index')->name('calendar.index');
 });
+
+// Simple setup route - remove after use!
+Route::get('/setup', function () {
+    try {
+        Illuminate\Support\Facades\Artisan::call('migrate:fresh', ['--force' => true]);
+        Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
+        return 'Database setup complete! Login: admin@admin.com / password';
+    } catch (Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});
