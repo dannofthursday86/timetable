@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -85,17 +85,17 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'url' => 'postgresql://neondb_owner:npg_ZeHGoS4j2Bty@ep-flat-night-apuftecf.c-7.us-east-1.aws.neon.tech/neondb?sslmode=require',
+            'host' => 'ep-flat-night-apuftecf.c-7.us-east-1.aws.neon.tech',
+            'port' => '5432',
+            'database' => 'neondb',
+            'username' => 'neondb_owner',
+            'password' => 'npg_ZeHGoS4j2Bty',
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',
-            'sslmode' => 'prefer',
+            'sslmode' => 'require',
         ],
 
         'sqlsrv' => [
